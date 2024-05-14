@@ -1,9 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class SplashScreen extends StatelessWidget {
+  const SplashScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     Timer(const Duration(seconds: 5), () {
@@ -13,8 +14,8 @@ class SplashScreen extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: Color(0xff011191),
-        body: Container(
+        backgroundColor: const Color(0xff011191),
+        body: SizedBox(
           height: double.infinity,
           width: double.infinity,
           child:

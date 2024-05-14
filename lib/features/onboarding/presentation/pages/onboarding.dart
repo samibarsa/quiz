@@ -1,7 +1,9 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:quiz/core/util/constatnt.dart';
 
 class OnBoardingPage extends StatefulWidget {
   const OnBoardingPage({super.key});
@@ -68,8 +70,27 @@ class OnBoardingPageState extends State<OnBoardingPage> {
       pages: [
         PageViewModel(
           title: "",
-          bodyWidget: Column(
-            children: [],
+          bodyWidget: Stack(
+            children: [
+              SvgPicture.asset(
+                'assets/svgimages/Frame 8.svg',
+                height: AppSize.high.h - 29.h,
+              ),
+              Column(
+                children: [
+                  SizedBox(
+                    height: 505.h,
+                  ),
+                  Center(
+                    child: Text(
+                      "Welcome to the online\nE-Learning App",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 24.sp, color: Colors.white),
+                    ),
+                  ),
+                ],
+              )
+            ],
           ),
           decoration: pageDecoration,
         ),
@@ -102,6 +123,7 @@ class OnBoardingPageState extends State<OnBoardingPage> {
           ? const EdgeInsets.all(12.0)
           : const EdgeInsets.fromLTRB(8.0, 4.0, 8.0, 4.0),
       dotsDecorator: DotsDecorator(
+        spacing: EdgeInsets.only(bottom: 40.h, left: 12.w),
         activeColor: Colors.white,
         size: const Size(10.0, 10.0),
         color: Colors.white.withOpacity(40 / 100),
