@@ -24,7 +24,7 @@ class SignInBody extends StatelessWidget {
         CoustomTextFiled(
           hintStyle: 'Password',
           padding: 75.w,
-          icon: Icons.person,
+          icon: Icons.lock,
         ),
         SizedBox(
           height: 11.h,
