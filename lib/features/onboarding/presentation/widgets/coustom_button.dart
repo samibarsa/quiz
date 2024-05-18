@@ -1,32 +1,56 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:quiz/features/onboarding/presentation/pages/onboarding.dart';
 
 class CoustomButton extends StatelessWidget {
-  const CoustomButton({
+  CoustomButton({
     super.key,
-    required this.introKey,
     required this.text,
+    required this.onPressed,
+    required this.color,
+    required this.icon,
   });
   final String text;
-  final GlobalKey<IntroductionScreenState> introKey;
-
+  final void Function() onPressed;
+  final Color color;
+  final IconData? icon;
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-        style: ButtonStyle(
-            minimumSize: MaterialStatePropertyAll(Size(310.w, 44.h)),
-            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8.0.r),
-            )),
-            backgroundColor: const MaterialStatePropertyAll(Color(0xff009FF5))),
-        onPressed: () => introKey.currentState!.controller.nextPage(
-            duration: const Duration(milliseconds: 400),
-            curve: Curves.easeInToLinear),
-        child: Text(
-          text,
-          style: const TextStyle(color: Colors.white),
-        ));
+    return Padding(
+      padding: EdgeInsets.only(bottom: 11.h),
+      child: ElevatedButton(
+          style: ButtonStyle(
+              minimumSize: MaterialStatePropertyAll(Size(310.w, 44.h)),
+              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8.0.r),
+              )),
+              backgroundColor: MaterialStatePropertyAll(color)),
+          onPressed: onPressed,
+          child: SizedBox(
+            width: 240.h,
+            height: 44.h,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Icon(
+                  icon,
+                  color: color == Colors.white ? Colors.black : Colors.white,
+                ),
+                Text(
+                  text,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      color:
+                          color == Colors.white ? Colors.black : Colors.white),
+                ),
+                SizedBox(
+                  width: 20.w,
+                )
+              ],
+            ),
+          )),
+    );
   }
 }

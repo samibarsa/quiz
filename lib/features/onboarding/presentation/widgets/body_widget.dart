@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:quiz/core/util/constatnt.dart';
-import 'package:quiz/features/onboarding/presentation/pages/onboarding.dart';
-import 'package:quiz/features/onboarding/presentation/widgets/coustom_button.dart';
 
 class BodyWidget extends StatelessWidget {
   const BodyWidget({
@@ -11,10 +9,12 @@ class BodyWidget extends StatelessWidget {
     required this.path,
     required this.title,
     required this.descreption,
+    required this.button,
   });
   final String path;
   final String title;
   final String descreption;
+  final Widget button;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class BodyWidget extends StatelessWidget {
         Column(
           children: [
             SizedBox(
-              height: 505.h,
+              height: 460.h,
             ),
             Center(
               child: Text(
@@ -37,7 +37,7 @@ class BodyWidget extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 38.h,
+              height: 20.h,
             ),
             Center(
               child: Text(
@@ -54,7 +54,7 @@ class BodyWidget extends StatelessWidget {
             SizedBox(
               height: 15.h,
             ),
-            CoustomButton(introKey: introKey, text: "Start"),
+            button,
           ],
         )
       ],

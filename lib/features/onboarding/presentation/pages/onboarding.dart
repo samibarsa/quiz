@@ -25,7 +25,7 @@ class OnBoardingPageState extends State<OnBoardingPage> {
       scrollControllers: [pageController],
       globalBackgroundColor: const Color(0xff016BBF),
       infiniteAutoScroll: true,
-      pages: pages,
+      pages: pages(context),
       showNextButton: false,
       showDoneButton: false,
       curve: Curves.easeInCubic,
