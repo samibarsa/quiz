@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:introduction_screen/introduction_screen.dart';
-import 'package:quiz/features/onboarding/presentation/pages/onboarding.dart';
 
 class CoustomButton extends StatelessWidget {
-  CoustomButton({
+  const CoustomButton({
     super.key,
     required this.text,
     required this.onPressed,
