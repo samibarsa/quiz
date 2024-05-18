@@ -20,7 +20,7 @@ class OnBoardingPageState extends State<OnBoardingPage> {
   @override
   Widget build(BuildContext context) {
     return IntroductionScreen(
-      autoScrollDuration: 2132,
+      autoScrollDuration: 7000,
       key: introKey,
       scrollControllers: [pageController],
       globalBackgroundColor: const Color(0xff016BBF),

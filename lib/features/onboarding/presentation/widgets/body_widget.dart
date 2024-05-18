@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -10,11 +12,18 @@ class BodyWidget extends StatelessWidget {
     required this.title,
     required this.descreption,
     required this.button,
+    required this.spaceBetweenTitleDescreption,
+    required this.hight_of_sizedbox,
+    required this.spaceBetweenDescreptionButton,
   });
   final String path;
   final String title;
   final String descreption;
   final Widget button;
+
+  final double spaceBetweenTitleDescreption;
+  final double spaceBetweenDescreptionButton;
+  final double hight_of_sizedbox;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +36,7 @@ class BodyWidget extends StatelessWidget {
         Column(
           children: [
             SizedBox(
-              height: 460.h,
+              height: hight_of_sizedbox,
             ),
             Center(
               child: Text(
@@ -37,7 +46,7 @@ class BodyWidget extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 20.h,
+              height: spaceBetweenTitleDescreption,
             ),
             Center(
               child: Text(
@@ -52,7 +61,7 @@ class BodyWidget extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 15.h,
+              height: spaceBetweenDescreptionButton,
             ),
             button,
           ],

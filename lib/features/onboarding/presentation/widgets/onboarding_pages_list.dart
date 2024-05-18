@@ -13,6 +13,9 @@ List<PageViewModel> pages(BuildContext context) => [
       PageViewModel(
         title: "",
         bodyWidget: BodyWidget(
+          spaceBetweenDescreptionButton: 45.h,
+          spaceBetweenTitleDescreption: 45.h,
+          hight_of_sizedbox: 460.h,
           path: 'assets/svgimages/Frame 8.svg',
           title: 'Welcome to the online\nE-Learning App',
           descreption:
@@ -32,6 +35,9 @@ List<PageViewModel> pages(BuildContext context) => [
       ),
       PageViewModel(
         bodyWidget: BodyWidget(
+          spaceBetweenTitleDescreption: 47.h,
+          spaceBetweenDescreptionButton: 35.h,
+          hight_of_sizedbox: 500.h,
           path: 'assets/svgimages/Frame 9.svg',
           title: 'Anytime, Anywhere',
           descreption:
@@ -53,6 +59,9 @@ List<PageViewModel> pages(BuildContext context) => [
       PageViewModel(
         title: "",
         bodyWidget: BodyWidget(
+            spaceBetweenTitleDescreption: 6.h,
+            hight_of_sizedbox: 449.h,
+            spaceBetweenDescreptionButton: 26.h,
             path: 'assets/svgimages/Frame 10.svg',
             title: 'Log in or sign up',
             descreption: 'select desire log in methode',
