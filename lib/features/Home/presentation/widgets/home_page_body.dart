@@ -1,47 +1,33 @@
-// ignore: file_names
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:quiz/core/util/constatnt.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:quiz/features/Home/presentation/widgets/header_of_home_page_body.dart';
+import 'package:quiz/features/Home/presentation/widgets/list_carusal_items.dart';
+import 'package:quiz/features/Home/presentation/widgets/search_text_filed.dart';
 
-class HomePageBody extends StatelessWidget {
+class HomePageBody extends StatefulWidget {
   const HomePageBody({
     super.key,
     required this.username,
   });
   final String username;
+
+  @override
+  State<HomePageBody> createState() => _HomePageBodyState();
+}
+
+class _HomePageBodyState extends State<HomePageBody> {
+  int currentindex = 0;
   @override
   Widget build(BuildContext context) {
+    CarouselController carouselController = CarouselController();
     return SingleChildScrollView(
       child: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(top: 30.h, left: 40.w),
-                  child: Text(
-                    '👋 Hi, $username',
-                    style: TextStyle(
-                        fontSize: 18.sp,
-                        fontFamily: lexend,
-                        fontWeight: FontWeight.w600),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(right: 40.w, top: 40.h),
-                  child: Image.asset(
-                    'assets/images/notificationbing.png',
-                    color: Colors.black,
-                  ),
-                )
-              ],
-            ),
+            HeaderOfHomePageBody(widget: widget),
             SizedBox(
               height: 10.h,
             ),
@@ -57,43 +43,27 @@ class HomePageBody extends StatelessWidget {
             SizedBox(
               height: 37.h,
             ),
+            const SearchTextFiled(),
             SizedBox(
-              width: 320.w,
-              child: Material(
-                  shadowColor: Colors.black,
-                  elevation: 8,
-                  borderRadius: BorderRadius.circular(8.r),
-                  child: TextField(
-                    cursorColor: Colors.black,
-                    cursorHeight: 20.h,
-                    style: TextStyle(
-                      height: 1.2.h,
-                    ),
-                    decoration: InputDecoration(
-                        isDense: true,
-                        prefix: SizedBox(width: 5.w),
-                        prefixIconColor: Colors.black,
-                        prefixIconConstraints: BoxConstraints.loose(
-                          Size(50.w, 30.h),
-                        ),
-                        prefixIcon: Padding(
-                          padding: const EdgeInsets.only(left: 15),
-                          child: SvgPicture.asset(
-                            'assets/svgimages/Vector.svg',
-                          ),
-                        ),
-                        border: outLineInputBorder(),
-                        focusedBorder: outLineInputBorder(),
-                        enabledBorder: outLineInputBorder()),
-                  )),
-            )
+              height: 37.h,
+            ),
+            CarouselSlider(
+              items: items(currentindex),
+              carouselController: carouselController,
+              options: CarouselOptions(
+                autoPlay: true,
+                aspectRatio: 2.0,
+                enlargeCenterPage: true,
+                onPageChanged: (index, reason) {
+                  setState(() {
+                    currentindex = index;
+                  });
+                },
+              ),
+            ),
           ],
         ),
       ),
     );
   }
-
-  OutlineInputBorder outLineInputBorder() => OutlineInputBorder(
-      borderRadius: BorderRadius.circular(8.r),
-      borderSide: const BorderSide(color: Colors.white));
 }
