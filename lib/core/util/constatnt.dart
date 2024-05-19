@@ -5,3 +5,4 @@ abstract class AppSize {
 
 String mochiy = 'Mochiy_pop_one';
 String montserrat = 'Montserrat';
+String lexend = 'Lexend';

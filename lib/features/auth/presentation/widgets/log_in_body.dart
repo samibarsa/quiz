@@ -35,7 +35,7 @@ class LogInBody extends StatelessWidget {
             color: const Color(0xff009FF5),
             icon: null),
         RowOfText(
-          OnTap: () => Navigator.of(context).pushNamed('/signin'),
+          OnTap: () => Navigator.of(context).pushNamed('/signup'),
           text: 'Don’t have account ?',
           buttonText: "Sign in",
         )
