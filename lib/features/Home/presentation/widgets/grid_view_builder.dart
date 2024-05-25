@@ -22,7 +22,12 @@ class GridViewBuilder extends StatelessWidget {
             crossAxisSpacing: 12.w,
             crossAxisCount: 2,
             mainAxisSpacing: 12.h),
-        itemBuilder: (context, index) => const GridViewItem(),
+        itemBuilder: (context, index) => const GridViewItem(
+          imagePath: 'assets/svgimages/textofcontiner.svg',
+          title: 'Biology',
+          subtitlel: "Biology & the\nscientific methode",
+          likes: 1231,
+        ),
       ),
     );
   }

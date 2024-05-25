@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:quiz/features/Home/presentation/pages/pageview.dart';
 import 'package:quiz/features/auth/presentation/widgets/coustom_text_filed.dart';
 import 'package:quiz/features/auth/presentation/widgets/row_of_text.dart';
 import 'package:quiz/features/onboarding/presentation/widgets/coustom_button.dart';
@@ -39,7 +40,11 @@ class SignInBody extends StatelessWidget {
         ),
         CoustomButton(
             text: 'Sign up',
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => const Pageview(),
+              ));
+            },
             color: const Color(0xff009FF5),
             icon: null),
         RowOfText(
